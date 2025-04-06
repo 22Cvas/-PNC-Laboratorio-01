@@ -2,14 +2,13 @@ package Services;
 
 import Model.Citas;
 import Model.Doctor;
-import Model.Paciente;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-public class CitaService {
+public class AppointmentService {
     private List<Citas> citas = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
 

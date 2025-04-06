@@ -1,8 +1,7 @@
 import Model.Doctor;
-import Model.Paciente;
-import Services.CitaService;
+import Services.AppointmentService;
 import Services.DoctorService;
-import Services.PacienteService;
+import Services.PatientService;
 
 import java.util.Scanner;
 
@@ -10,8 +9,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         DoctorService doctorService = new DoctorService();
-        PacienteService pacienteService = new PacienteService();
-        CitaService citaService = new CitaService();
+        PatientService pacienteService = new PatientService();
+        AppointmentService citaService = new AppointmentService();
 
         while (true) {
             System.out.println("\nSistema de Citas Médicas");
