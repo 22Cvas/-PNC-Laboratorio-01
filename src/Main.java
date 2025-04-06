@@ -29,7 +29,7 @@ public class Main {
                     doctorService.agregarDoctor();
                     break;
                 case 2:
-                    pacienteService.agregarPaciente();
+                    pacienteService.addPatient();
                     break;
                 case 3:
                     System.out.println("Ingrese el nombre del doctor: ");

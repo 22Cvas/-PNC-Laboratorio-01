@@ -8,6 +8,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.*;
 
 public class PatientService {
     private List<Person> patients = new ArrayList<>();
@@ -20,11 +21,25 @@ public class PatientService {
         System.out.println("Ingrese el apellido del paciente: ");
         String lastName = scanner.nextLine();
 
-        System.out.println("Ingrese el DUI: ");
-        String dui = scanner.nextLine();
-
         System.out.println("Ingrese su Cumpleanos: ");
         String birthDay = scanner.nextLine();
+
+        String dui;
+
+        if (validateAge(stringToDate(birthDay))){
+
+            dui = "00000000-0";
+
+        }else{
+
+            System.out.println("Ingrese el DUI: ");
+            dui = scanner.nextLine();
+            if (!validateDui(dui)){
+                System.out.println("DUI inválido.");
+                return;
+            }
+
+        }
 
         Person paciente = new Person(firstName, lastName, dui, stringToDate(birthDay));
         patients.add(paciente);
@@ -57,7 +72,16 @@ public class PatientService {
 
     public boolean validateAge(LocalDate birthDay){
         if (Period.between(birthDay, LocalDate.now()).getYears() < 18){
-        }
+            return true;
+        }else return false;
+    }
+
+        public boolean validateDui(String dui) {
+        String regex = "\\d{10}-\\d";
+        boolean matches = dui.matches(regex);
+        if (matches) {
+            return true;
+        }else return false;
     }
 
 }
