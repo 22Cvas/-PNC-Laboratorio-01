@@ -1,43 +1,72 @@
 package Model;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 public class Appointment {
 
     private Doctor doctor;
-    private Person patient;
-    private Date date;
-    private boolean attended;
+    private Person paciente;
+    private Specialty specialty;
+    private Date fecha;
+    private Date fechaFin;
+    private boolean asistio;
 
-    public Appointment(Doctor doctor, Person patient, Date date, boolean attended) {
+    // Constructor actualizado
+    public Appointment(Doctor doctor, Person paciente, Specialty specialty, Date fecha, Date fechaFin, boolean asistio) {
         this.doctor = doctor;
-        this.patient = patient;
-        this.date = date;
-        this.attended = attended;
+        this.paciente = paciente;
+        this.specialty = specialty;
+        this.fecha = fecha;
+        this.fechaFin = fechaFin;
+        this.asistio = asistio;
     }
 
+    // Métodos getter y setter
     public Doctor getDoctor() {
         return doctor;
     }
 
-    public Person getPatient() {
-        return patient;
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
     }
 
-    public Date getDate() {
-        return date;
+    public Person getPaciente() {
+        return paciente;
     }
 
-    public boolean isAttended() {
-        return attended;
+    public void setPaciente(Person paciente) {
+        this.paciente = paciente;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public Specialty getSpecialty() {
+        return specialty;
     }
 
-    public void setAttended(boolean attended) {
-        this.attended = attended;
+    public void setSpecialty(Specialty specialty) {
+        this.specialty = specialty;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public Date getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+
+    public boolean isAsistio() {
+        return asistio;
+    }
+
+    public void setAsistio(boolean asistio) {
+        this.asistio = asistio;
     }
 }

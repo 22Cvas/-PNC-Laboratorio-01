@@ -5,7 +5,6 @@ import Services.PatientService;
 import Model.Person;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import java.util.Scanner;
 
 public class Main {
@@ -35,51 +34,37 @@ public class Main {
                     pacienteService.addPatient();
                     break;
                 case 3:
+                    // En el Main.java, donde agregas la opción de listar doctores:
+                    doctorService.listarDoctores();  // Esto imprimirá todos los doctores registrados
+
                     System.out.println("Ingrese el nombre del doctor: ");
                     String doctorNombre = scanner.nextLine();
 
-                    System.out.println("Ingrese la fecha de contratación del doctor (formato yyyy-MM-dd): ");
+
+                    System.out.println("Ingrese el nombre del paciente: ");
+                    String pacienteNombre = scanner.nextLine();
+
+                    System.out.println("Ingrese la especialidad: ");
+                    String especialidad = scanner.nextLine();
+
+                    System.out.println("Ingrese la fecha de la cita (formato yyyy-MM-dd HH:mm): ");
                     String fechaTexto = scanner.nextLine();
-                    Date fechaRecruitment;
+                    Date fechaCita;
                     try {
-                        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-                        fechaRecruitment = formato.parse(fechaTexto);
+                        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                        fechaCita = formato.parse(fechaTexto);
                     } catch (Exception e) {
                         System.out.println("Fecha inválida. Se usará la fecha actual.");
-                        fechaRecruitment = new Date();
+                        fechaCita = new Date();
                     }
 
-                    Doctor doctor = new Doctor("DOC-001", doctorNombre, "Apellido", "12345678-9", fechaRecruitment, new Date());
-
-                    System.out.println("Ingrese el nombre del paciente: ");
-                    String pacienteNombre = scanner.nextLine();
-                    Person person = new Person(pacienteNombre, "Apellido", "00000000-0", new Date());
-
-                    System.out.println("Ingrese la especialidad: ");
-                    String especialidad = scanner.nextLine();
-
-                    citaService.agendarCita(doctor, person, new Date());
+                    citaService.agendarCita(doctorNombre, pacienteNombre, especialidad, fechaCita);
                     break;
 
-
-
-
-                    /*
-                    System.out.println("Ingrese el nombre del doctor: ");
-                    String doctorNombre = scanner.nextLine();
-                    Doctor doctor = new Doctor("DOC-001", doctorNombre, "Apellido", "12345678-9", "dateRecruitment", new java.util.Date());
-
-                    System.out.println("Ingrese el nombre del paciente: ");
-                    String pacienteNombre = scanner.nextLine();
-                    Person Person = new Person(pacienteNombre, "Apellido", "00000000-0", new java.util.Date());
-
-                    System.out.println("Ingrese la especialidad: ");
-                    String especialidad = scanner.nextLine();
-
-                    citaService.agendarCita(doctor, Person, especialidad);*/
                 case 4:
                     citaService.listarCitas();
                     break;
+
                 case 5:
                     System.exit(0);
                 default:

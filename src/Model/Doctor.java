@@ -8,10 +8,12 @@ public class Doctor extends Person {
     private Date dateRecruitment;
     private Specialty specialty;
 
-    public Doctor(String id, String firstName, String lastName, String dui, Date dateRecruitment, Date birthDay) {
+    // Constructor modificado para aceptar Specialty y Date de contratación y nacimiento
+    public Doctor(String id, String firstName, String lastName, String dui, Specialty specialty, Date dateRecruitment, Date birthDay) {
         super(firstName, lastName, dui, birthDay);
         this.id = id;
         this.dateRecruitment = dateRecruitment;
+        this.specialty = specialty;  // Guardar la especialidad del doctor
     }
 
     public Specialty getSpecialty() {
