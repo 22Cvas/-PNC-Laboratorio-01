@@ -6,9 +6,9 @@ import java.util.Date;
 public class Person {
 
  private String firstName, lastName, dui;
- private LocalDate birthDay;
+ private Date birthDay;
 
-    public Person(String firstName, String lastname, String dui, LocalDate birthDay) {
+    public Person(String firstName, String lastname, String dui, Date birthDay) {
         this.firstName = firstName;
         this.lastName = lastname;
         this.dui = dui;
@@ -27,7 +27,7 @@ public class Person {
         return dui;
     }
 
-    public LocalDate getBirthDay() {
+    public Date getBirthDay() {
         return birthDay;
     }
 }

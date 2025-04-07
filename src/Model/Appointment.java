@@ -7,10 +7,10 @@ public class Appointment {
 
     private Doctor doctor;
     private Person patient;
-    private LocalDate date;
+    private Date date;
     private boolean attended;
 
-    public Appointment(Doctor doctor, Person patient, LocalDate date, boolean attended) {
+    public Appointment(Doctor doctor, Person patient, Date date, boolean attended) {
         this.doctor = doctor;
         this.patient = patient;
         this.date = date;
@@ -25,7 +25,7 @@ public class Appointment {
         return patient;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
@@ -33,7 +33,7 @@ public class Appointment {
         return attended;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

@@ -1,15 +1,14 @@
 package Model;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 public class Doctor extends Person {
 
     private String id;
-    private LocalDate dateRecruitment;
+    private Date dateRecruitment;
     private Specialty specialty;
 
-    public Doctor(String id, String firstName, String lastName, String dui, LocalDate dateRecruitment, LocalDate birthDay) {
+    public Doctor(String id, String firstName, String lastName, String dui, Date dateRecruitment, Date birthDay) {
         super(firstName, lastName, dui, birthDay);
         this.id = id;
         this.dateRecruitment = dateRecruitment;
@@ -27,11 +26,11 @@ public class Doctor extends Person {
         this.id = code;
     }
 
-    public LocalDate getDateRecruitment() {
+    public Date getDateRecruitment() {
         return dateRecruitment;
     }
 
-    public void setDateRecruitment(LocalDate dateRecruitment) {
+    public void setDateRecruitment(Date dateRecruitment) {
         this.dateRecruitment = dateRecruitment;
     }
 }

@@ -19,18 +19,18 @@ public class AppointmentService {
             return;
         }
         for (Appointment c : citas) {
-            System.out.println("\nDoctor: " + c.getDoctor().getNombre() + " " + c.getDoctor().getApellido());
-            System.out.println("Paciente: " + c.getPaciente().getNombre() + " " + c.getPaciente().getApellido());
-            System.out.println("Especialidad: " + c.getEspecialidad());
-            System.out.println("Fecha: " + c.getFecha());
-            System.out.println("Asistió: " + (c.isAsistio() ? "Sí" : "No"));
+            System.out.println("\nDoctor: " + c.getDoctor().getFirstName() + " " + c.getDoctor().getLastName());
+            System.out.println("Paciente: " + c.getPatient().getFirstName()+ " " + c.getPatient().getLastName());
+            System.out.println("Especialidad: " + c.getDoctor().getSpecialty().getName());
+            System.out.println("Fecha: " + c.getDate().toString());
+            System.out.println("Asistió: " + (c.isAttended() ? "Sí" : "No"));
         }
     }
 
-    public void agendarCita(Doctor doctor, Person paciente, String especialidad) {
-        Date fecha = new Date();
-        Appointment cita = new Appointment(doctor, paciente, especialidad, fecha, false);
+    public void agendarCita(Doctor doctor, Person paciente, Date fecha) {
+        Date fechaActual = new Date(); // ✅ nombre diferente
+        Appointment cita = new Appointment(doctor, paciente,  fechaActual, false);
         citas.add(cita);
-        System.out.println("Cita agendada con éxito.");
     }
+
 }
